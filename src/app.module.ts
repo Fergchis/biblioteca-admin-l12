@@ -4,9 +4,10 @@ import { AdminController } from './admin/admin.controller.js';
 import { RabbitAdminService } from './admin/rabbit-admin.service.js';
 import { JwtGuard } from './auth/jwt.guard.js';
 import { RolGuard } from './auth/rol.guard.js';
+import { KafkaModule } from './kafka/kafka.module.js';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true })],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), KafkaModule],
   controllers: [AdminController],
   providers: [RabbitAdminService, JwtGuard, RolGuard],
 })
